@@ -8,4 +8,4 @@ class TimeViewSet(viewsets.ModelViewSet):
     permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
-        return Time.objects.filter(participante__usuario=self.request.user)
+        return Time.objects.filter(participantes__usuario=self.request.user)
