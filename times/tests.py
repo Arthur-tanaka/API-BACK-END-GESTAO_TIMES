@@ -26,9 +26,14 @@ class TestTimes(TestCase):
             'descricao':'Descrição teste',
         })
         self.assertEqual(response.status_code, 401)
-
-    
-    
-    
-    
-        
+        # Teste membro autenticado não pode criar tarefas
+    def test_membro_autenticado_restringir(self):
+        self.client.force_authenticate(user=self.usuario)
+        response = self.client.post('/tarefas/tarefas', {
+            'status':'a_fazer',
+            'descricao':'Descrição_teste_membro_autenticado',
+            'time': self.time.id,
+            'responsavel': self.usuario.id,
+            'prazo':'2027-06-20'
+        })
+        self.assertEqual(response.status_code, 403)
