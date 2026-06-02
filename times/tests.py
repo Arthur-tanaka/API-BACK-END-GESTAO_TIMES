@@ -32,12 +32,14 @@ class TestTimes(TestCase):
             time=self.time,
                 papel=Participante.Tipo_usuario.GERENTE,
         )
+        
     # Teste de usuario não autenticado que não tem permissão para operar o sistema
     def test_usuario_nao_autenticado(self):
         response = self.client.post('/times/times', {
             'descricao':'Descrição teste',
         })
         self.assertEqual(response.status_code, 401) 
+        
     # Teste membro autenticado não pode criar tarefas
     def test_membro_autenticado_restringir(self):
         self.client.force_authenticate(user=self.usuario)
@@ -49,6 +51,7 @@ class TestTimes(TestCase):
             'prazo':'2027-06-20'
         })
         self.assertEqual(response.status_code, 403)
+        
     # Gerente autenticado consegue criar tarefa
     def test_gerente_cria_tarefa(self):
         self.client.force_authenticate(user=self.usuario2)
