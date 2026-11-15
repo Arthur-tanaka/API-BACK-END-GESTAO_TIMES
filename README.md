@@ -99,10 +99,9 @@ venv\Scripts\activate  # Windows
 # Instale as dependências
 pip install -r requirements.txt
 
-# Configure o .env (veja .env.example, se houver)
-# SECRET_KEY=
-# DEBUG=True
-# ALLOWED_HOSTS=localhost,127.0.0.1
+# Copie o exemplo e configure as variáveis necessárias
+cp .env.example .env
+# Edite SECRET_KEY no arquivo .env antes de usar a aplicação
 
 # Rode as migrações
 python manage.py migrate
