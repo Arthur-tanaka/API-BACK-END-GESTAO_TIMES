@@ -94,7 +94,7 @@ cd API-BACK-END-GESTAO_TIMES
 
 # Crie e ative o ambiente virtual
 python -m venv venv
-venv\Scripts\activate  # Windows
+source venv/bin/activate  # macOS/Linux; no Windows use venv\Scripts\activate
 
 # Instale as dependências
 pip install -r requirements.txt
@@ -109,6 +109,18 @@ python manage.py migrate
 # Inicie o servidor
 python manage.py runserver
 ```
+
+### Front-end
+
+O front-end fica em `frontend/` e usa Vite. Em um segundo terminal, inicie a API com `python manage.py runserver` e rode:
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+Abra `http://localhost:5173`. O servidor de desenvolvimento encaminha as chamadas de `/users`, `/times` e `/tarefas` para a API local em `http://127.0.0.1:8000`.
 
 ## 👤 Autor
 

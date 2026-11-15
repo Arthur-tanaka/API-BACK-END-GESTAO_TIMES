@@ -25,6 +25,10 @@ share/python-wheels/
 .installed.cfg
 *.egg
 MANIFEST
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+.DS_Store
 
 # PyInstaller
 #   Usually these files are written by a python script from a template
@@ -59,8 +63,8 @@ cover/
 # Django stuff:
 *.log
 local_settings.py
-db.sqlite3
-db.sqlite3-journal
+*.sqlite3
+*.sqlite3-*
 
 # Flask stuff:
 instance/
@@ -151,8 +155,12 @@ activemq-data/
 
 # Environments
 .env
+.env.*
+!.env.example
 .envrc
 .venv
+frontend/node_modules/
+frontend/dist/
 env/
 venv/
 ENV/
@@ -202,6 +210,7 @@ cython_debug/
 #   and can be added to the global gitignore or merged into this file. However, if you prefer, 
 #   you could uncomment the following to ignore the entire vscode folder
 # .vscode/
+.vscode/
 # Temporary file for partial code execution
 tempCodeRunnerFile.py
 
