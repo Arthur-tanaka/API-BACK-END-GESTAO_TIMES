@@ -1,6 +1,8 @@
 const ACCESS_KEY = 'gestao.access';
 const REFRESH_KEY = 'gestao.refresh';
 
+const API_URL = import.meta.env.VITE_API_URL || '';
+
 export const session = {
   get access() { return sessionStorage.getItem(ACCESS_KEY); },
   get refresh() { return sessionStorage.getItem(REFRESH_KEY); },
@@ -19,9 +21,9 @@ async function request(path, options = {}, retry = true) {
   if (options.body && !(options.body instanceof FormData)) headers.set('Content-Type', 'application/json');
   if (session.access) headers.set('Authorization', `Bearer ${session.access}`);
 
-  let response = await fetch(path, { ...options, headers });
+  let response = await fetch(`${API_URL}${path}`, { ...options, headers });
   if (response.status === 401 && retry && session.refresh && path !== '/users/token/refresh/') {
-    const refreshResponse = await fetch('/users/token/refresh/', {
+    const refreshResponse = await fetch(`${API_URL}/users/token/refresh/`,{
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ refresh: session.refresh }),
