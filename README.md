@@ -2,7 +2,7 @@
 
 API REST desenvolvida com Django e Django REST Framework para gerenciamento de times e tarefas, com controle de acesso baseado em papéis (RBAC).
 
-🔗 **Deploy:** [api-back-end-gestao-times.onrender.com](https://api-back-end-gestao-times.onrender.com)
+🔗 **Deploy:** [api-back-end-gestao-times-1.onrender.com](https://api-back-end-gestao-times-1.onrender.com/)
 
 > ⚠️ A aplicação está hospedada no plano gratuito do Render, que hiberna após períodos de inatividade. A primeira requisição pode levar até 50 segundos para responder.
 
